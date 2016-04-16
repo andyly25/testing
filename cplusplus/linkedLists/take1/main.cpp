@@ -8,15 +8,6 @@
 #include "LinkedList.h"
 using namespace std;
 
-/*things to add:
-*1. insert to front
-*2. insert to end
-*3. delete head
-*4. delete end
-*5. possibly take in userinput store into a file
-*6. read from file
-*/
-
 int main(void){
 	//note to self, change company to developer later
 	//creating some unlinked nodes
@@ -63,6 +54,8 @@ int main(void){
 	//remove last node
 	myList.removeNode(6);
 	myList.printList();
+
+	// myList.insertHead(F);
 
 	return 0;
 }

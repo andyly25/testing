@@ -14,6 +14,20 @@ LinkedList::LinkedList(){
 	listlength =0;
 }
 
+// bool LinkedList::insertHead(node *newNode){
+// 	if(head->next ==NULL){
+// 		head->next = newNode;
+// 		listlength++;
+// 		return true;
+// 	}else{
+// 		node *p = head;
+// 		newNode->next = p;
+// 		head->next = newNode;
+// 		listlength++;
+// 		return true;
+// 	}
+// }
+
 /*Setter takes adds node to list at given position.
  *Takes a node and list pos as parameters
  *pos must be between 1 and num of data nodes

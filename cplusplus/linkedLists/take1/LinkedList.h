@@ -27,6 +27,10 @@ private:
 public:
 	//default constructor creates head node.
 	LinkedList();
+
+	//inserts a node to the head
+	// bool insertHead(node *newNode);
+	
 	/*Setter takes adds node to list at given position.
 	 *Takes a node and list pos as parameters
 	 *pos must be between 1 and num of data nodes
