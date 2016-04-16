@@ -7,6 +7,7 @@
 
 //default constructor creates the head node
 LinkedList::LinkedList(){
+	head = new node;
 	head->game = "head contains no game data";
 	head->company = "head contains no company data";
 	head->next = NULL;
@@ -92,9 +93,9 @@ void LinkedList::printList(){
 	while(q){
 		p=q;
 		cout<< "\n--------------------------\n";
-		cout<< "t position: "<< count << endl;
-		cout<< "t game: "<< p->game << endl;
-		cout<< "t developer: "<< p->company << endl;
+		cout<< "\t position: "<< count << endl;
+		cout<< "\t game: "<< p->game << endl;
+		cout<< "\t developer: "<< p->company << endl;
 		q = p->next;
 		count++;
 	}
@@ -107,6 +108,6 @@ LinkedList::~LinkedList(){
 	while(q){
 		p=q;
 		q=p->next;
-		if(q) delete p;
+		delete p;
 	}
 }
