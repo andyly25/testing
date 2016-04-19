@@ -48,7 +48,7 @@ void cll::create_node(int value){
 //insert at beginning
 void cll::add_begin(int value){
 	if(last ==NULL){
-		cout<<"First create the list."<<endl;
+		cout<<"\nFirst create the list using 1"<<endl;
 		return;
 	}
 	struct node *tmp;
@@ -61,7 +61,7 @@ void cll::add_begin(int value){
 //insertion at particular position
 void cll::add_after(int value, int position){
 	if(last ==NULL){
-		cout<<"First create the list."<<endl;
+		cout<<"\nFirst create the list using 1"<<endl;
 		return;
 	}
 	struct node *tmp, *tmp2;
@@ -103,7 +103,7 @@ void cll::delete_element(int value){
 	}
 	while(tmp2->next!=last){
 		//deletion of element in between
-		if(tmp->next->data == value){
+		if(tmp2->next->data == value){
 			tmp = tmp2->next;
 			tmp2->next = tmp->next;
 			free(tmp);
@@ -114,11 +114,12 @@ void cll::delete_element(int value){
 	//deletion from last element
 	if(tmp2->next->data == value){
 		tmp = tmp2->next;
+		tmp2->next = last->next;
 		free(tmp);
 		last = tmp2;
 		return;
 	}
-	cout<<"Element "<<value<<" not found in the list"<<endl;
+	cout<<"\nElement "<<value<<" not found in the list"<<endl;
 }
 
 //search element in the list
@@ -146,7 +147,7 @@ void cll::search_element(int value){
 void cll::display_list(){
 	struct node *s;
 	if(last == NULL){
-		cout<<"List is empty, nothing to show"<<endl;
+		cout<<"\nList is empty, nothing to show"<<endl;
 		return;
 	}
 	s=last->next;
@@ -162,13 +163,14 @@ void cll::display_list(){
 void cll::update(){
 	int value, pos, i;
 	if(last == NULL){
-		cout<<"Error: Empty list, nothing to update"<<endl;
+		cout<<"\nError: Empty list, nothing to update"<<endl;
 		return;
 	}
 	cout<<"Enter the node pos to be updataed: ";
-	cin>>pos;
+	// cin>>pos;
+	pos = grabElement();
 	cout <<"Enter the new value: ";
-	cin>>value;
+	value = grabElement();
 	struct node *tmp;
 	tmp = last->next;
 	for(i=0; i<pos-1; i++){
@@ -177,8 +179,9 @@ void cll::update(){
 			return;
 		}
 		tmp = tmp->next;
-		cout<<"Node updated!"<<endl;
 	}
+	tmp->data = value;
+	cout<<"Node updated!"<<endl;
 }
 
 //sort the List
@@ -193,7 +196,7 @@ void cll::sort(){
 	while(s!=last){
 		ptr = s->next;
 		while(ptr!=last->next){
-			if((ptr!=last->next)&&(s->data>ptr->data)){
+			if((ptr!=last->next)&&(s->data > ptr->data)){
 				tmp = s->data;
 				s->data = ptr->data;
 				ptr->data = tmp;
@@ -213,7 +216,7 @@ int grabElement(){
 		cout<<"\nThis is not a number"<<endl;
 		cin.clear();
 		cin.ignore(256,'\n');
-		cout<<"\nEnter a new number"<<endl;
+		cout<<"\nEnter a number"<<endl;
 		cin>>element;
 	}
 	return element;
@@ -289,6 +292,7 @@ int main(){
 	        	cl.sort();
 	        	break;
 	        case 9:
+	        	cout<<"Closing program..."
 	        	exit(1);
 	        	break;
 	        default:

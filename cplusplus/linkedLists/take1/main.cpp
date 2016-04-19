@@ -55,7 +55,5 @@ int main(void){
 	myList.removeNode(6);
 	myList.printList();
 
-	// myList.insertHead(F);
-
 	return 0;
 }
