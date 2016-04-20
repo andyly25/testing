@@ -15,6 +15,13 @@ Linked List notes:
 -Queue: are FIFO (First in first out)
 	+made with doubly linked list that removes from head and adds to tail
 
+Array 					vs 			Linked List:
+Physically contiguous				Logically contiguous
+fixed length						changeable length
+access by index 					access by traversal
+insertion is costly					insertion is efficient	
+
+
 Big O efficiency: from bigocheatsheet.com
 Time complexity Average 
 Accessing: 		O(n) 
@@ -27,3 +34,5 @@ Accessing: 		O(n)
 Search: 		O(n)
 Insertion: 		O(1)
 Deletion: 		O(1)
+
+space complexity O(1)
