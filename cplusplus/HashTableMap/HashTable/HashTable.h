@@ -12,7 +12,7 @@
 #include "LinkedList.h"
 
 //Hash table objects store fixed # of Linked Lists
-Class HashTable{
+class HashTable{
 private:
 	//array is ref to an array of LL
 	LinkedList *array;
