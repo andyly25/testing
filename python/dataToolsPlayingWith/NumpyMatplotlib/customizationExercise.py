@@ -37,6 +37,9 @@ def main():
 	life_exp = readFile("life_exp.txt")
 	pop = readFile("population.txt")
 
+	#turning into numpy arrays
+	np_gdp = np.array(gdp_cap)
+	np_life = np.array(life_exp)
 	np_pop = np.array(pop)
 	#doubling the population
 	np_pop*=2
@@ -70,11 +73,23 @@ def main():
 	plt.text(1550, 71, 'India')
 	plt.text(5700, 80, 'China')
 
+	#additional information
+	gdp_mean = np.mean(np_gdp)
+	# lifegdp_corr = np.corrcoef(np_life, np_gdp)
+	pop_median = np.median(np_pop)
+	life_stddev = np.std(np_life)
+	#testing footnote
+	plt.figtext(0.2,0, 'gdp mean: '+str(gdp_mean) +'\n'
+		+ 'life expectancy stddev: '+str(life_stddev) +'\n'
+		+ 'population median: '+str(pop_median) +'\n')
+
 	#Add grid() call
 	plt.grid(True)
 
 	#adapt the ticks on the x-axis
 	plt.xticks(tick_val, tick_lab)
+
+	plt.gcf().subplots_adjust(bottom = 0.2)
 	plt.show()
 
 
