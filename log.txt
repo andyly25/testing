@@ -1,0 +1,16 @@
+log.txt
+
+April 14-15, 2016:
+	-Playing with singly linked lists
+
+April 18-22:
+	-Played with circular linked lists
+	-Started adding in notes for data structures
+	-Started hash table data structures
+	-On the side was looking at IOS development, on hold
+	-studying how to do data mining and display
+		+Using Python's Numpy and Matplotlib
+
+April 25-29, 2016:
+	-currently working on Ruby on Rails
+		+In progress, will add once barebones added
