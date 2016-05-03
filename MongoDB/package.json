@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "underline": "1.5.2",
+    "mongodb": "2.0.35"
+  }
+}
