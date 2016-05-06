@@ -1,0 +1,137 @@
+Object Oriented Programming:
+
+An object is a some self-contained code and data with the goal of breaking a problem into smaller, understandable parts
+	-objects hides detail, allow us to ignore details of rest of the program
+
+example of objects we already used: String, Integer, Dictionary, Lists ...
+
+Object Oriented: where many objects work together to form a program
+	-each object is a little piece of land within the program working with one another
+	-objects makes use of each other's capabilities
+
+Terms:
+	Class: a template (eg cows)
+	Method/Message: defined capability of a class (eg moo() )
+	Field/Attribute: a bit of data in a class (eg length)
+	Object/instance: particular instance of a class (eg Garfield)
+
+Class: 
+	Define abstract characteristic of object (includes atributes, fields, or properties) and its behaviors(things it can do).
+Method:
+	an object's abilities
+	-methods are verbs, what they can do
+	-cats can: sleep(), eat(), lick(), destroyLasagna()
+Instance: 
+	Actual object created at runtime. 
+	-Garfield is an instance of the Cat class
+	-state: set of values of attributes of particular object
+
+when writing an object:
+class is a reserved word
+
+class someAnimal:
+	x = 0 #some object data
+
+	def eat(self):
+		self.x = self.x+1
+		print "So far", self.x
+
+garfield = someAnimal() #creates a someAnimal object
+
+#basically calls: someAnimal.eat(garfield)
+garfield.eat() #tells the object to run the animal code()
+
+dir() lists capabilities
+	-ones with underscores are used by Python itself
+	-rest are real operations object can perform
+	-similar to type which tells us something about variable
+
+Objects life cycle:
+	objects are created, used, discarded
+		-note uses two _ (underscores)
+		-moment of creation (constructor)
+		-moment of destruction (destructor)
+	-Constructors:
+		purpost set up instance var to have proper intital values when object is made
+
+class someAnimal:
+	x = 0 #some object data
+
+	def __init__(self):
+		print "I am constructed"
+
+	def eat(self):
+		self.x = self.x+1
+		print "So far", self.x
+
+	def __del__(self):
+		print "I am destructed", self.x
+
+Many INstances
+	-we can create lots of obj - class is template of obj
+	-can store each distinct obj in own var
+	-call this having multiple instances of same class
+	-each instance has own copy of instance vars
+
+class someAnimal:
+	x = 0 #some object data
+	name = ""
+
+	#constructors can have additional parameters to setup instance vars for particular instance
+	def __init__(self, aname):
+	self.name = aname
+		print self.name, " constructed"
+
+	def eat(self):
+		self.x = self.x+1
+		print self.name, " ate so far", self.x
+
+	def __del__(self):
+		print "I am destructed", self.x
+
+#how you would use is below
+garfield = someAnimal("Garfield")
+garfield.eat()
+Tom = someAnimal("Tom")
+Tom.eat() #he wishes it was Jerry
+
+This created to independent instances
+
+Inheritance:
+	the ability to reuse an existing class and inherit the capabilities of an existing class and add a bit more to make new class
+	-new class child has all capabilities of its parent + more
+
+class someAnimal:
+	x = 0 #some object data
+	name = ""
+
+	#constructors can have additional parameters to setup instance vars for particular instance
+	def __init__(self, aname):
+	self.name = aname
+		print self.name, " constructed"
+
+	def eat(self):
+		self.x = self.x+1
+		print self.name, " ate so far", self.x
+
+	def __del__(self):
+		print "I am destructed", self.x
+
+#meatEater is a class which extends someAnimal, has all capabilities of someAnimal and more
+class meatEater(someAnimal):
+	kills = 0;	
+	def hunt(self):
+		self.kills = self.kills +1
+		self.eat()
+		print self.name,"kills", self.kills
+
+
+garfield = someAnimal("Garfield")
+garfield.eat()
+
+#now you can do
+td = meatEater("TasmanianDevil")
+td.eat()
+td.kill()
+
+

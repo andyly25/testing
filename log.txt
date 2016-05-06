@@ -13,4 +13,9 @@ April 18-22:
 
 April 25-29, 2016:
 	-currently working on Ruby on Rails
-		+In progress, will add once barebones added
+		+Started working on an online portfolio website
+
+May 2-8, 2016:
+	-working more on portfolio website
+	-started learning MongoDB with NodeJS
+	-decided to try practicing more python
