@@ -1,0 +1,25 @@
+#JS Modules
+- JS does not define a standard library
+- CommonJS API fill gap by define APIs for common app needs
+	- defines module format and follows CommonJS module specification
+
+###Node Modules
+- Each file in Node is it own module
+	- gives access to current module definition in file
+	- module.exports var determines export from current module
+	- require function is used to import a module
+
+####Module Example
+```JavaScript
+//rectangle Module:
+module.exports = function(){
+	return{
+		perimeter: function(x,y){return (2*(x+y));},
+		area: function(x,y) {return(x*y);}
+	};
+}
+
+//Using this module:
+var rect = require('./rectangle');
+
+```

@@ -1,0 +1,22 @@
+#Full stack JS Development
+Full stack includes from left to right:
+
+Presentation layer <- Business Logic Layer <-> Data Acess Layer
+
+##Data Access layer
+- Database Management Systems
+- MongoDB JSON documents
+
+<->
+
+##Business Logic Layer
+- Ruby, Python, Java, C++, PHP
+- NodeJS and NodeJS 
+- Back end as a service (BaaS)
+
+<- Rest API serving JSON
+
+##Presentation Layer:
+- HTML, CSS, JS
+- Single page apps using JS frameworks like AngularJS
+

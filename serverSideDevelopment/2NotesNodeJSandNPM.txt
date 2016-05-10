@@ -1,0 +1,19 @@
+#Node.JS
+- JS runtime built on Chrome V8 JS Engine
+- Use event-driven, non-blocking I/O model
+	- lightweight and efficient
+
+##Node Architecture (top to bottom)
+- Node Core /Standard Library (JS)
+- Node Bindings (C++)
+- Chrome V8 (C++) and Libuv(C)
+
+##Use cases:
+- Utilities written in JS for web development
+	- Bower, Grunt, Gulp, Yeoman ...
+- Server-side development
+	- Web Server, Business logic, Database access
+
+##Node Package Manager
+- manages ecosystem of node modules and packages
+- package contains JS files and package.json (manifest)
