@@ -1,0 +1,62 @@
+###Node and HTTP:
+
+- Goal:
+	- create HTTP server using Node HTTP core module
+	- create web server to serve static HTML files from folder
+
+####HTTP Protocol:
+- Client and Server:
+	- web apps are not standalone 
+	- most have cloud backend
+	- browser <-Client-server communication-> Server Backend <-> Database
+	-        HTTP with REST API					(		The cloud 		)
+- Networking Alphabet Soup (I can barely even sing the normal one)
+	- HTTP, REST, JSON, XML, URL, SOAP, GET, POST, PUT
+- Client Server COmmunication:
+	- network operations cause unexpected delays
+	- need to write apps recognize asynchronous nature of communication
+		- data not instantly available
+- Hypertext Transfer Protocol (HTTP):
+	- client server communications protocol
+	- allows retrieving interlinked text docs (www)
+	- verbs:
+		- HEAD, GET, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT
+- HTTP Request Message:
+	- Request Line: specifies the details of the request message
+		- Method(POST GET...) URL(what you try access) Version(of HTTP)
+		- eg: GET /index.html HTTP/1.1
+	- header: carries additional info from the client to server
+		- Header Field Name : Value ...
+		- eg: host: localhost:3000
+		- eg: user-agent: Mozilla/4.0 . . .
+	- blank line: separating the header and body
+	- body: contains the actual data being sent from the client to server
+		- Body Contents
+	-typical message from Server contain status line, then by header, then blank line followed by data.
+		- Request: 	HTTP/1.1 200 OK
+			- 200 means request properly serviced and return response contain real data
+		- Header: 	Connection: keep-alive
+		-			Content-Type: text/html
+		-			Date" Sun ----- GMT
+		-			Transfer-Encoding: chunked
+		- Blank Line
+		- Body: 	<html> stuffs in between </html>
+
+- HTTP Response Codes (main)
+|Code 	|Meaning				|
+|:-----:|:---------------------:|
+|200	|OK						|
+|201	|Created 				|
+|301	|Moved Permanently 		|
+|304	|Not Modified			|
+|400	|Bad Request 			|
+|401	|Unauthorized			|
+|403	|Forbidden				|
+|404	|Not found				|
+|422	|Unprocessable Entry	|
+|500	|Internal Server Error	|
+|501	|HTTP ver not supported	|
+
+Server may send back data in specific format:
+- eXtensible Markup Language (XML)
+- Javascript Object Notation (JSON)

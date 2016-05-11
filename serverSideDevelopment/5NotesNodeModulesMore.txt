@@ -1,0 +1,20 @@
+###Using Node Modules
+- include them using require function
+- file based modules:
+	- require('./module_name') //you need specify relative path to the file
+- Core and external modules:
+	- require('module_name')
+	- can find in ../node_modules until found
+
+Normally there will be an index.js file as the starting file for the node module. 
+- this will be the root if all files and folders
+
+There will also be a package.json file
+- there is a specification called "main", so if you hate using index.js as default you can name something else here.
+- semantic versioning by <Major ver>.<Minor ver>.<Patch> 
+	- npm can specify acceptable package version:
+		- exact: npm install express@4.00
+		- patch acceptable: npm install express@"~4.0.0"
+		- Minor version acceptable: npm install express@"^4.0.0"
+inside there are dependencies:
+- containing the list of all node modules on which this particular node module is dependent on. 

@@ -1,0 +1,31 @@
+#Callbacks
+- Callbacks allows for asynchronous programming
+- Allows to shift away from main flow 
+	- that way a computation dependent on something else won't block a different computation from running
+	- we can reorganize the computation to turn the long running computation into a callback.
+		- then give callback to long running computation call and will execute after you finish your other business.
+
+###Node, Async I/O and Callbacks
+Event loop -I/O request-> FDP
+
+File/Database/Processing(FDP) -I/Orequest completion-> Event loop (single thread) 
+
+Event loop -Callback-> requests
+
+```JavaScript
+//Callbacks/error handling example
+
+module.exports = function(x,y,callback){
+	try{
+		if(x<0||y<0){
+			throw new Error("The dimensions should be greater than zero: l = "+x+" and h = " y);
+		}
+		else
+			callback(null, {
+				perimeter: function({return(2*(x+y));},
+				area: function(){return(x*y);}
+			});
+	}
+	catch(error){callback(error,null);}
+}
+```
