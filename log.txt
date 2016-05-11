@@ -19,3 +19,7 @@ May 2-8, 2016:
 	-working more on portfolio website
 	-started learning MongoDB with NodeJS
 	-decided to try practicing more python
+		-data structures, web, databases
+
+May 9-15, 2016:
+	-continuation of previous week
