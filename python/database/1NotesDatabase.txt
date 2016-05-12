@@ -1,0 +1,73 @@
+#Database(db) Introduction
+
+Note I'm downloading [sqlite browser]('http://sqlitebrowser.org/')
+
+###Relational Databases:
+- model data by storing rows and columns in tables
+- ability to retrieve data from tables and relationship between other tables in query
+
+####Terms
+- Database: contains many tables
+- table (Relation): contains attributes and tuples
+- Tuple (row): set of field that represents an object and info about object
+- Attribute (column): one or more elements of data corresponding to object represented by row
+- Object: pysical object or concepts
+- Relation: set of tuples that have same attributes
+	- aka table, organized into rows and columns
+![image from sfdcloud](https://developer.salesforce.com/docs/resources/img/en-us/192.0?doc_id=dev_guides%2Fappx_dev%2Fimages%2Fadg_db_positions.jpg&folder=fundamentals)
+
+###SQL
+- Structured Query Language: language used to issues commands to db
+	- create table, retrieve data, insert, delete ...
+	- This is CRUD (Create, Retrieve, Update, Delete)
+
+###Database Model
+- db model/schema is structure or format of a db.
+	- application of data model when used with db management system
+- Three Major DB Management Systems:
+	- Oracle: large, enterprise scale, commercial
+	- MySql: Simpler, fast and scalable, commercial open source
+		- There's a MariaDB
+	- SqlServer: nice from Microsoft
+	- Others are SQLite, Postgress and more
+		- SQLite is an embedded DB
+			- part of a software, built in
+
+```SQL
+/* Single Table example */
+CREATE TABLE Users(
+	name VARCHAR(128),
+	email VARCHAR(128)
+)
+
+```
+
+######SQL Insert
+- insert statment inserts a row into a table
+```SQL
+INSERT INTO Users(name,email) VALUES ('danny', 'danny@gmail.com')
+```
+
+######SQL Delete
+- Deletes a row in a table based on selection criteria
+```SQL
+DELETE FROM Users WHERE email='danny@gmail.com'
+```
+
+######SQL Update
+- Allow updates to a field with a where clause
+```SQL
+UPDATE Users SET name="John" WHERE email='yolo@gmail.com'
+```
+
+######SQL Retrieving Records
+- Select statment retrieves group of records
+	- with WHERE, you can retrieve all or subset of records
+```SQL
+SELECT*FROM Users WHERE email='yolo@gmail.com'
+```
+######Sorting with ORDER BY
+- You can add an ORDER BY clause to SELECT statements to get results sorted (asc or desc)
+```SQL
+SELECT*FROM Users ORDER BY name
+```
