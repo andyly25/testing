@@ -1,0 +1,73 @@
+#Intro to Express:
+- Implement web server using express framework
+- Develop web server supports REST API
+- Use Express Router to implement support for Rest API
+
+###What is it?
+- Fast, minimalist web framework for Node.js [expressjs.com](expressjs.com)
+	- part of MEAN stack, Mongo Express, Angular and Node stack for implement full stack web app
+	- many third party middleware to extend functionality
+		- parse JSON thats comes in body, parse cookies and support for and etc...
+		- morgan for logging, serving static web resources
+	- installing in project folder: npm install express --save
+
+###Web Services
+- supports ineroperability of systems connected by network
+	- SOA (service oriented architecture)
+	- standardized way integrate web-based apps over internet
+- SOAP (Simple Obeject Access Protocol) based service
+	- XML based and uses WSDL (Web service description language)
+- REST (Represenational State Transfer)
+
+###REST
+- use web standards, exchange data with JSON or XML, simpler
+- a collection of network archicteure principles outline how resources are defined and addressed
+- Four basic design principles
+	1. Use HTTP methods explicitly
+	2. Be stateless
+	3. Expose directory structure-like URLs
+	4. Transfer using XML, JSON or both
+- goal was to capture characteristics of the Web
+	- URI (uniform resource indicator) Addressable resources
+	- HTTP protocol
+	- make request, receive, display response
+- Exploits beyond HTTP POST and GET with: PUT and DELETE
+- Concepts:
+	1. Nouns (resources):
+		- resources you can use over a network
+		- addressed using uniform resource indicators
+		- unconstrained: http://something.food/dishes/321
+	2. Verbs:
+		- represents what should be done. 
+		- constrained: GET(read), PUT(update), POST(create), DELETE(delete)
+	3. Representations: 
+		- representing data when it is being transferred from one side to another
+		- common to have multiple representations of same data
+		- constrained: XML, JSON
+- Stateless Server:
+	- server side should not track client state
+		_ every request is new request from client
+	- client tracks own state:
+		- use of cookies, client side database
+		- client side MVC setup
+
+###Express Router:
+- identify an end point with URI and apply verb on URI
+- Express supports through: app.all, app.get, app.post put delete methods
+	- app .all is if encounter any of the four kinds of request, then apply that particular functionality mentioned in function
+	- app.all('/games', function(req,res,next){...});
+- request parameters
+	- req.param is a JS object which contains all the request parameters that come in
+- Body parser:
+	- var bodyParser = require('bpdy-parser');
+	- app.use(bodyParser.json()); 
+	- this parse body of message and populates req.body property
+- Express Router: creates a mini express app, example below
+```JavaScript
+var gameRouter = express.Router();
+gameRouter.use(bodyParser.json());
+// ...
+dishRouter.route('/')
+	.all(...);
+	.get(...);
+```

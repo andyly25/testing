@@ -60,3 +60,24 @@
 Server may send back data in specific format:
 - eXtensible Markup Language (XML)
 - Javascript Object Notation (JSON)
+
+####HTTP Module:
+- Core networking module support HTTP stack
+- to use: var http = require('http');
+- server: var server = http.createServer(function(req,res){...});
+	- inncoming request message through req
+		- e.g. req.headers, req.body
+	- res or response as second param
+		- e.g. res.setHeader(...);, res.statusCode = 200;
+- start server: server.listen(port,...);
+
+#####Node path Module
+- using path: var path = require('path');
+	- e.g. : path.resolve('./public'+fileUrl);
+#####Node fs Module
+- aka file system module
+	- use: var fs = require('fs');
+	- fs.exists(filepath, function(exists){...});
+		- verifies and return Boolean value if exists
+	- fs.createReadStream(filePath).pipe(res);
+		- supply a file path that create reading stream to file, and then read its data
