@@ -23,3 +23,8 @@ May 2-8, 2016:
 
 May 9-15, 2016:
 	-continuation of previous week
+
+May 16-22, 2016:
+	- decided to try more classes on Coursera and Udacity
+		- Python database, web services, data structures
+		- interactive 3D graphics, Machine Learning
