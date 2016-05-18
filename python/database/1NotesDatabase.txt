@@ -71,3 +71,52 @@ SELECT*FROM Users WHERE email='yolo@gmail.com'
 ```SQL
 SELECT*FROM Users ORDER BY name
 ```
+
+###Data Models
+- It's a good idea to plan out how you're going to make your db. For example, let's use the idea of songs/tracks
+- Generally a good idea to make your table from outside in
+- primary key: a way to refer to a particular row
+	- we'll put insert the title, which will get a number
+	- then use number in a column to point to a different table
+- logical key: the unique thing we use to look up this row from the outside world. 
+- foreign key: one of the columns that we add to starting point of the arrows.
+	- primary key is end of the arrow, while foreign is start
+- tracks contains:
+	- id, title, rating, len, count, album_id, genre_id
+	- Belongs-to genre
+		- contains: id, name
+	- Belongs-to album
+		- contains: id, title, artist_id
+		- belongs to artist
+			- contains: id, name
+	
+sample of making a table
+```SQL
+CREATE TABLE Track(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, 
+	title TEXT,
+	album_id INTEGER,
+	genre_id Integer,
+	len INTEGER, rating INTEGER, count INTEGER
+)
+```
+
+###Relational Power
+- web: removing replicated data and substitue with references to single copy of each bit of data
+	- data comes from number of tables linked by foreign keys
+	- can read through quickly
+- linking tables by What we want to see, the tables that hold data, and then how the tables are linked
+```SQL
+select Album.title, Artist.name from Album join Artist on Album.artist_id = Artist.id
+```
+
+if you get rid of the on Album.artist_id = Artist.id,
+it then does things by all combinations, which can become really messy for bigger dbs
+
+There's a pattern
+
+```SQL
+select Track.title, Artist.name, Album.title, Genre.name
+from Track join Genre join Album join Artist
+on Track.genre_id = Genre.id and Track.album_id = Album.id and Album.artist_id = Artist.id
+```
