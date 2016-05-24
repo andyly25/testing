@@ -21,8 +21,8 @@ mongodb.MongoClient.connect(uri, function(error, db){
 			console.log(error);
 			process.exit(1);
 		}
-		/* Query for a document is trikeier since if yo pass call back to 
-		 * driver's find cuntion, you'll get back a cursor rather than set of documents.
+		/* Query for a document is trickier since if you pass call back to 
+		 * driver's find funtion, you'll get back a cursor rather than set of documents.
 		 * cursor: object that you could call next on to get the next document
 		 * the driver has the toarray function that exhausts cursor and
 		 * returns an array of documents in the callback

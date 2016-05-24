@@ -4,10 +4,13 @@
 	"__coment2":"can also go npm install mocha -g to use mocha in terminal",
 	"scripts":{
 		"test": "mocha 4mochatest.js",
-		"test-kitten": "mocha -R nyan 4mochatest.js"
+		"test-kitten": "mocha -R nyan 4mochatest.js",
+		"watch": "gulp watch"
 	},
 
-	"dependencies": {
+	"devDependencies": {
+		"gulp":"3.8.11",
+		"gulp-mocha": "2.0.1",
 		"underscore": "1.5.2",
 		"mongodb": "2.0.35",
 		"mocha": "2.2.4"
