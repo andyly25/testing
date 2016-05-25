@@ -32,10 +32,28 @@ thissock.connect(('www.py4inf.com',80))
 ####urllib in Python
 - a Python library that does all socket work for you
 	- views web pages like a file
+
 ```python
+# Beginning of a webcrawler
 import urllib
 fhand = urllib.urlopen('http://www.py4inf.com/code/romeo.txt')
 
 for line in fhand:
 	print line.strip()
 ```
+
+#####Web Scraping
+- program/script pretend to be a browser and retrieves web pages
+	- looks at page, extracts info, then look at more
+	- referred to as **web crawling**, e.g. web engines scrape web pages
+- reasons for scraping
+	- pull data: e.g. social data
+	- monitor site for updates
+	- spider web to make a DB for search engine
+	- grab your data from site with no export capability
+- warning certain sites will be really grumpy if you scrape them
+	- FB and Google were some honorable mentions
+
+####Parsing HTML with Beautiful Soup
+- from <www.crummy.com>
+- throw all your "junky" HTML code and mix it into soup and out comes something beautiful that you can parse
