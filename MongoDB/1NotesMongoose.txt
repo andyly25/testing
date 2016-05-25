@@ -1,0 +1,71 @@
+Note that previous assignments and examples contained my notes, but I'll also take some notes starting now.
+
+Goal of this chapter is to set up object schemas for my retail mean stack application.
+
+###Goal
+- have Node.js server that stores data in MongoDB
+	- responsible for validating client's data, authentication, and payment processing.
+		- serve as validation and business logic layer on top of MongoDB
+	- MongoDB to store all of the app's data
+	- Have two clients: angular JS and hybrid mobile app using ionic framework
+		- responsible for rendering HTML themselves, no page reloads
+		- They will both interact with the server through an API
+
+###Mongoose
+- Is an object document mapper (ODM)
+- provides schema vlidation, pseudo joins, and etc
+- The API consists of 4 data types 
+	1. schema: set of rules that defines what fields a document have and what properties doc must satisfy to be valid
+	2. connection: object representing one or more sockets that are connected to MongoDB server
+	3. Model: combo of schema and connection.
+		- it is a wrapper around a single MongoDB collection to ensure docs inserted satisfy schema's constraints
+	4. document is a single object from collection
+		- Mongoose doc can be thought of an instantiation of a model
+		- has associated model and dot save function that use to persist doc to MongoDB
+- Pros:
+	- fast in place updates and queries
+- cons: 
+	- no joins
+- Store what you query for is useful mnemonic
+	- easier to understand, reason, and debug
+	- less data transformation between the client and the database
+
+####principle of least cardinality
+- provides guideline to resolve one to many and many to many relationships
+- MongoDB docs can contain arrays
+	- note: arrays that can grow w/o bounds is very bad
+	- cause massive document size, wastes network throughput
+- ideal schema design in case of an on unbounded number of reviews
+	- reviews to track which user posted them, rather than list reviews in user doc
+	- results in smaller array sizes
+####indexes
+- It is a way to get consistent performance from your queries as your data grows. 
+- a way for MongoDB to pre-compute results of a query
+	- cheaper than collection scans as data grows
+- create index by call create index function in shell
+	- creates data struct that maps value of name field to docs that have value of field name
+- multikey index: keeps track of values in an array
+	- speeds up queries that require scanning though arrays
+	- collection scans, however, would scan through every single array
+
+####Retail app schema
+- enable users to discover new products by category hierarchy
+	- query for list of all products
+	- which can go into more specific catgories
+	- eg. Electronics -> Phone -> Android or Iphone
+	- Electronics -> Computer -> Apple or PC -> Macbook or Dell/HP
+- Unlike SQL DBs, MongoDB doesn't have built-in notion of access control.
+	- No way to tell only that user has access to these fields.
+	- The ability to nest docs in other docs provides your app to implement access control.
+	- MongoDB queries have notion of **projection**
+		- enables hide fields from output of query
+
+####Virtuals
+- are properties that are computed from other properties
+- not persisted to the DB, but can be accessed like any other properties
+- toObject and toJSON functions are Mongoose's method to convert its doc into plain JS object
+	- JS built in JSON.stringify convert JS object into JSON string
+		- looks for toJSON function on object and uses that output
+	- by default does not include virtuals unless you set true.
+	- it will configure to include virtuals in toObject and toJSON
+	
