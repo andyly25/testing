@@ -122,8 +122,10 @@ on Track.genre_id = Genre.id and Track.album_id = Album.id and Album.artist_id =
 ```
 
 ###Many to Many
-- occurs when you need to add a 'connection' table with 2 foreign keys
+- occurs when you need to add a 'connection' table with 2 foreign keys (they point outwards)
 	- usually no separate primary keys
+		- both numbers, so duplication allowed
+	- create a composite key, both of these two things are the primary key for the table
 	- eg. 1 game can have many producers and 1 producer can have many games
 		- so we have to build a table between them (junction table)
-	zzz Feel pooped from Fanime convention will probably continue tomorrow
+
