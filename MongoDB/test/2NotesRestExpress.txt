@@ -1,0 +1,18 @@
+#Rest API
+- REST: Representational State Transfer
+	- browser to communicate with server over HTTP (Hypertext Transfer Protocol)
+	- When you load a website's homepage, sends HTTP request to their servers
+		- then sends back an HTTP response
+		- instructions on how to render the page
+		- combo of three distinct things
+			1. verb: like GET
+			2. Resource: /home analogous to file path
+			3. body: optional JSON data
+	- Uses HTTP to manage state, using CRUD
+		- Create, Read, Update, Delete
+
+###Dependency Injection: 
+- software engineering practice to break your code into small, easy to maintain chunks
+	- separate initialization code from business logic
+		- rest API never worry e.g. set up mongoose models
+	- key to writing AngularJS code 
