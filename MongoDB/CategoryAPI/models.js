@@ -8,12 +8,26 @@ module.exports = function(wagner){
 	mongoose.connect('mongodb://localhost:27017/test');
 	//creates a mongoose model by including the schema
 	var Category = mongoose.model('Category', require('./category'), 'categories');
-	//registers the category service with wagner 
-	wagner.factory('Category', function(){
-		return Category;
-	});
+	// create ne product model
+	var Product = mongoose.model('Product', require('./product'), 'products');
 
-	return{
-		Category: Category
+	var models = {
+		Category:Category,
+		Product: Product
 	};
+	//to ensure DRY-ness, register factories in a loop
+	_.each(models, function(value,key){
+		wagner.factory(key, function(){
+		return value;
+		});
+	})
+
+	// //registers the category service with wagner 
+	// wagner.factory('Category', function(){
+	// 	return Category;
+	// });
+
+	// return{
+	// 	Category: Category
+	// };
 };

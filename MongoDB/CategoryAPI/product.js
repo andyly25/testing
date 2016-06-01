@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Category = require('./category');
+var fx 		 = require('.fx');
 
 // This schema represents what you will display on an individual product view
 var productSchema = {

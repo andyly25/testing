@@ -6,6 +6,29 @@ module.exports = function(wagner){
 	//creating a new express router
 	var api = express.Router();
 
+	api.get('/product/id/:id', wagner.invoke(function(product){
+		return function(req,res){
+			Product.findOne({_id:req.params.id},
+				handleOne.bind(null,'product',res));
+		};
+	}));
+
+	api.get('/product/category/:id', wagner.invoke(function(Product){
+		return function(req, res){
+			var sort = {name:1};
+			if(req.query.price === "1"){
+				sort={'internal.approximatePriceUSD':1};
+			}else if(req.query.price === "-1"){
+				sort = {'internal.approximatePriceUSD':-1};
+			}
+
+			Product.
+				find({'category.ancestors': req.params.id}).
+					sort(sort).
+					exec(handleMany.bind(null, 'products', res));
+		};
+	}));
+
 	//this first route loas categories by their underscore ID field
 	api.get('/category/id/:id', wagner.invoke(function(Category){
 		return function(req,res){
@@ -50,3 +73,39 @@ module.exports = function(wagner){
 	// return express router at end so higher level apps can include router with app.use
 	return api;
 };
+
+// defines generic rules for handling results to calls to model.findOne
+function handleOne(property, res, error, result){
+	if(error){
+		return res.
+			status(status.INTERNAL_SERVER_ERROR).
+			json({error:error.toString()});
+	}
+	if(!result){
+		return res.
+			status(status.NOT_FOUND).
+			json({error:'Not Fount'});
+	}
+	var json = ();
+	json[property]=result;
+	res.json(json);
+}
+
+// zzzz i give up, the professor keeps not showing the full example code
+// when teaching, making parts of example incomplete
+// also doesn't provide example code to download...
+function handleMany(property, res, error, result){
+	if(error){
+		return res.
+			status(status.INTERNAL_SERVER_ERROR).
+			json({error:error.toString()});
+	}
+	if(!result){
+		return res.
+			status(status.NOT_FOUND).
+			json({error:'Not Fount'});
+	}
+	var json = ();
+	json[property]=result;
+	res.json(json);
+}
