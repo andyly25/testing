@@ -129,3 +129,23 @@ on Track.genre_id = Genre.id and Track.album_id = Album.id and Album.artist_id =
 	- eg. 1 game can have many producers and 1 producer can have many games
 		- so we have to build a table between them (junction table)
 
+###Multistep Data Analysis
+- Data Source -Gather-> Database -> Clean/Process -> Clean db -> Visualize or analyze data
+	- Gatherisng process needs to be careful, since things could blow up in between so we store in a database and continue wherever last gathered
+
+####Geocoding
+- Google geodata -where.data->geoload.py-> geodata.sqlite -> geodump.py ->where.js -> what we see
+	- where.data is a bunch of location data
+	- data stored in sqlite file (gets cached)
+	- then file to process and shows you results from data
+
+####Search Engine Architecture
+- Web crawling 
+	- a program that scours the WWW in an automated manner to create a copy of visited pages for later processing of a search enginer for other purposes.
+- index building
+- searching
+
+####Gmane
+- crawl archive of mailing list
+- do some analysis/cleanup
+- visualize data as word cloud and lines
